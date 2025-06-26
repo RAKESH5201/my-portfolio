@@ -29,35 +29,58 @@ const floatingVariants = {
 
 const Skills = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 py-16 px-4 flex items-center justify-center">
-      <div className="max-w-6xl w-full">
-        <h2 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 mb-10">
-          My Unique Skills
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 place-items-center">
-          {skills.map((skill, index) => (
-            <Tilt key={index} tiltMaxAngleX={25} tiltMaxAngleY={25} glareEnable={true} glareMaxOpacity={0.45} scale={1.05} className="w-full">
-              <motion.div
-                variants={floatingVariants}
-                animate="animate"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="relative p-6 bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl border border-purple-500 cursor-pointer transform-gpu flex flex-col items-center justify-center hover:shadow-purple-500/50 group"
-              >
-                {/* Glowing Background Ring */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-purple-500 opacity-30 blur-xl animate-pulse"></div>
+    <section
+      id="Skills"
+      className="scroll-mt-20 min-h-screen flex flex-col justify-center items-center
+      bg-gradient-to-r from-purple-100 via-pink-100 to-yellow-100
+      dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+      text-gray-900 dark:text-white relative overflow-hidden py-20 px-4"
+    >
+      {/* Glowing Background Effects */}
+      <div className="absolute w-80 h-80 bg-purple-500 rounded-full blur-3xl opacity-20 top-10 left-10 animate-pulse"></div>
+      <div className="absolute w-72 h-72 bg-pink-500 rounded-full blur-2xl opacity-20 bottom-10 right-10 animate-ping"></div>
 
-                {/* Skill Icon */}
-                {skill.icon}
+      <motion.h2
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-5xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-12 text-center"
+      >
+        My Skills
+      </motion.h2>
 
-                {/* Neon Ping Ring on Hover */}
-                <div className="absolute w-24 h-24 rounded-full border-4 border-purple-500 opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 z-10 w-full max-w-6xl">
+        {skills.map((skill, index) => (
+          <Tilt
+            key={index}
+            tiltMaxAngleX={25}
+            tiltMaxAngleY={25}
+            glareEnable={true}
+            glareMaxOpacity={0.45}
+            scale={1.05}
+            className="w-full"
+          >
+            <motion.div
+              variants={floatingVariants}
+              animate="animate"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="relative p-6 bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-2xl border border-purple-500 cursor-pointer flex flex-col items-center justify-center group"
+            >
+              {/* Glow border animation */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-purple-500 opacity-30 blur-xl animate-pulse"></div>
 
-                <h3 className="mt-4 text-center text-lg font-semibold text-white">{skill.name}</h3>
-              </motion.div>
-            </Tilt>
-          ))}
-        </div>
+              {/* Skill Icon */}
+              {skill.icon}
+
+              {/* Hover Ping Animation */}
+              <div className="absolute w-20 h-20 rounded-full border-4 border-purple-500 opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+
+              {/* Label */}
+              <h3 className="mt-4 text-center text-lg font-semibold text-gray-900 dark:text-white">{skill.name}</h3>
+            </motion.div>
+          </Tilt>
+        ))}
       </div>
     </section>
   );

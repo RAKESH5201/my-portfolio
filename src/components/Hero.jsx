@@ -119,55 +119,64 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+  <section
+  id="Hero"
+  className="
+    scroll-mt-20 min-h-screen flex flex-col justify-center items-center
+    bg-gradient-to-r from-purple-200 via-pink-200 to-yellow-200
+    dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+    text-gray-900 dark:text-white
+    relative overflow-hidden
+  "
+>
+  {/* Neon Glow Circles */}
+  <div className="absolute w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-30 animate-pulse top-10 left-10"></div>
+  <div className="absolute w-72 h-72 bg-pink-500 rounded-full blur-2xl opacity-20 animate-ping bottom-10 right-10"></div>
 
-      {/* Neon Glow Circle in Background */}
-      <div className="absolute w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-30 animate-pulse top-10 left-10"></div>
-      <div className="absolute w-72 h-72 bg-pink-500 rounded-full blur-2xl opacity-20 animate-ping bottom-10 right-10"></div>
+  {/* Glassmorphic Card */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 1 }}
+    className="backdrop-blur-lg bg-white/10 p-10 rounded-3xl shadow-2xl border border-purple-500 max-w-3xl mx-4 text-center"
+  >
+    {/* Heading */}
+    <motion.h1
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500"
+    >
+      Hi, I'm <span className="text-yellow-300">Rakesh</span>
+    </motion.h1>
 
-      {/* Glassmorphic Card */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        className="backdrop-blur-lg bg-white/10 p-10 rounded-3xl shadow-2xl border border-purple-500 max-w-3xl mx-4 text-center"
-      >
-        {/* Animated Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500"
-        >
-          Hi, I'm <span className="text-yellow-300">Rakesh</span>
-        </motion.h1>
+    {/* Subtitle */}
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+      className="mt-4 text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-xl mx-auto"
+    >
+      A passionate Full Stack Developer crafting modern & elegant web experiences.
+    </motion.p>
 
-        {/* Animated Sub-title */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-4 text-xl md:text-2xl text-gray-300 max-w-xl mx-auto"
-        >
-          A passionate Full Stack Developer crafting modern & elegant web experiences.
-        </motion.p>
+    {/* Buttons */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1 }}
+      className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 justify-center"
+    >
+      <button className="px-6 py-3 bg-yellow-300 text-gray-900 font-semibold rounded-xl shadow-lg hover:bg-yellow-400 transition duration-300">
+        Hire Me
+      </button>
+      <button className="px-6 py-3 bg-transparent border-2 border-cyan-400 text-cyan-400 font-semibold rounded-xl hover:bg-cyan-400 hover:text-gray-900 transition duration-300">
+        View Projects
+      </button>
+    </motion.div>
+  </motion.div>
+</section>
 
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 justify-center"
-        >
-          <button className="px-6 py-3 bg-yellow-300 text-gray-900 font-semibold rounded-xl shadow-lg hover:bg-yellow-400 transition duration-300">
-            Hire Me
-          </button>
-          <button className="px-6 py-3 bg-transparent border-2 border-cyan-400 text-cyan-400 font-semibold rounded-xl hover:bg-cyan-400 hover:text-gray-900 transition duration-300">
-            View Projects
-          </button>
-        </motion.div>
-      </motion.div>
-    </section>
   );
 };
 
